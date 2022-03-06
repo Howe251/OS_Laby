@@ -39,11 +39,11 @@ def eat(left, right, i):
                 left.release()
                 right.release()
                 sleep(1)
-        if time() - start_time > 30 or stop:#5 * 60:
+        if time() - start_time > 5 * 60 or stop:
             p = False
             print(f"{threading.currentThread().name} {i+1} Процесс завершен")
             if not stop:
-                window.c.itemconfigure(window.phil[i], text=f"   {threading.currentThread().name} {i+1} завершен",
+                window.c.itemconfigure(window.phil[i], text=f"   {threading.currentThread().name}{i+1} завершен",
                                        fill="#652828")
 
 
