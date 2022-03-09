@@ -33,8 +33,12 @@ def eat(left, right, i):
             right.acquire()
             try:
                 print(f"{threading.currentThread().name} {i+1} ест \n", end="")
+                window.c.itemconfigure(window.phil[i], text=f"{threading.currentThread().name}{i + 1} ест",
+                                       fill="#652828", justify="left")
                 sleep(randint(5, 10))
                 print(f"{threading.currentThread().name} {i+1} закончил есть \n", end="")
+                window.c.itemconfigure(window.phil[i], text=f"          {threading.currentThread().name}{i + 1} закончил есть",
+                                       fill="#652828", justify="left")
             finally:
                 left.release()
                 right.release()
